@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -30,7 +29,6 @@ function Signup() {
             }
         })
             .then((res) => {
-                console.log(res);
                 navigate("/signin");
             })
             .catch((error) => {
@@ -39,7 +37,6 @@ function Signup() {
     };
     return (
         <Wrap>
-            <Header />
             <Title>회원가입..</Title>
             <Form>
                 <Input

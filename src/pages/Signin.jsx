@@ -1,12 +1,8 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import Header from "../components/Header";
 
 function Signin() {
-    const navigate = useNavigate();
-
     const [email, setEmail] = useState("");
     const [pw, setPw] = useState("");
     const [button, setButton] = useState(true);
@@ -20,7 +16,6 @@ function Signin() {
     };
 
     const submit = () => {
-        console.log("hi");
         axios({
             url: "https://pre-onboarding-selection-task.shop/auth/signin",
             method: "POST",
@@ -31,9 +26,8 @@ function Signin() {
             }
         })
             .then((res) => {
-                console.log(res.data.access_token);
                 localStorage.setItem("access_token", res.data.access_token);
-                // navigate("/todo");
+                window.location.replace("/todo");
             })
             .catch((error) => {
                 console.log(error);
@@ -41,7 +35,6 @@ function Signin() {
     };
     return (
         <Wrap>
-            <Header />
             <Title>로그인..</Title>
             <Form>
                 <Input

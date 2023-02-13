@@ -7,11 +7,20 @@ function Header() {
     const goToMain = () => {
         navigate("/");
     };
+
     const goToSignin = () => {
-        navigate("/signin");
+        if (localStorage.getItem("access_token")) {
+            navigate("/todo");
+        } else {
+            navigate("/signin");
+        }
     };
     const goToSignup = () => {
-        navigate("/signup");
+        if (localStorage.getItem("access_token")) {
+            navigate("/todo");
+        } else {
+            navigate("/signup");
+        }
     };
     return (
         <div>
@@ -27,8 +36,9 @@ function Header() {
 }
 
 const HeaderWrap = styled.div`
+    width: 80vw;
     height: 60px;
-
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;

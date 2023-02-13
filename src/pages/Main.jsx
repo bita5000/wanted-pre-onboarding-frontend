@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import Header from "../components/Header";
 import ElmoDancing from "../Images/Elmo-Dancing.webp";
 
 function Main() {
     return (
         <Wrap>
-            <Header />
             <ImgWrap>
                 <Img src={ElmoDancing} />
             </ImgWrap>
